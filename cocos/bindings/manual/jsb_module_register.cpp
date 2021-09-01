@@ -40,6 +40,7 @@
 #include "cocos/bindings/manual/jsb_global.h"
 #include "cocos/bindings/manual/jsb_platform.h"
 #include "cocos/bindings/manual/jsb_xmlhttprequest.h"
+#include "cocos/bindings/auto/jsb_customJSBridge_auto.h"
 
 #if USE_GFX_RENDERER
 #endif
@@ -127,6 +128,7 @@ bool jsb_register_all_modules() {
     se->addRegisterCallback(register_all_dop_bindings);
     se->addRegisterCallback(register_all_pipeline);
     se->addRegisterCallback(register_all_pipeline_manual);
+    se->addRegisterCallback(register_all_customJSBridge);
 
 #if (CC_PLATFORM == CC_PLATFORM_MAC_IOS || CC_PLATFORM == CC_PLATFORM_MAC_OSX)
     se->addRegisterCallback(register_javascript_objc_bridge);

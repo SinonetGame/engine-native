@@ -25,6 +25,7 @@
 
 #include "cocos/platform/Application.h"
 #include "cocos/bindings/jswrapper/SeApi.h"
+#include "pipeline/RenderPipeline.h"
 
 #if USE_AUDIO
     #include "cocos/audio/include/AudioEngine.h"
@@ -40,6 +41,8 @@ namespace cc {
 void Application::restartVM() {
 
     cc::EventDispatcher::dispatchRestartVM();
+
+    pipeline::RenderPipeline::getInstance()->destroy();
 
     auto *scriptEngine = se::ScriptEngine::getInstance();
 
@@ -92,7 +95,7 @@ void Application::tick() {
     _scheduler->update(dt);
     cc::EventDispatcher::dispatchTickEvent(dt);
 
-    AutoreleasePool *currentPool = PoolManager::getInstance()->getCurrentPool();
+    LegacyAutoreleasePool *currentPool = PoolManager::getInstance()->getCurrentPool();
     if (currentPool) {
         currentPool->clear();
     }

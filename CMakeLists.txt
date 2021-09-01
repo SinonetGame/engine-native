@@ -388,6 +388,12 @@ cocos_source_files(
     cocos/base/ZipUtils.h
 )
 
+##### customJSBridge
+cocos_source_files(
+    cocos/customJSBridge/CustomJSBridge.cpp
+    cocos/customJSBridge/CustomJSBridge.h
+)
+
 ##### memory
 cocos_source_files(
                  cocos/base/memory/AllocatedObj.cpp
@@ -420,6 +426,18 @@ cocos_source_files(
                  cocos/base/threading/ThreadSafeLinearAllocator.h
                  cocos/base/threading/ThreadSafeLinearAllocator.cpp
 )
+
+if(APPLE)
+cocos_source_files(
+                 cocos/base/threading/AutoReleasePool.h
+                 cocos/base/threading/AutoReleasePool-apple.mm
+)
+else()
+cocos_source_files(
+                 cocos/base/threading/AutoReleasePool.h
+                 cocos/base/threading/AutoReleasePool.cpp
+)
+endif()
 
 ##### job system
 cocos_source_files(
@@ -1173,6 +1191,9 @@ cocos_source_files(
                  cocos/bindings/auto/jsb_network_auto.h
     NO_WERROR    cocos/bindings/auto/jsb_pipeline_auto.cpp
                  cocos/bindings/auto/jsb_pipeline_auto.h
+
+    NO_WERROR    cocos/bindings/auto/jsb_customJSBridge_auto.cpp
+                 cocos/bindings/auto/jsb_customJSBridge_auto.h
 )
 
 if(USE_AUDIO)

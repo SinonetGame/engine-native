@@ -253,8 +253,8 @@ bool Scheduler::isScheduled(const std::string &key, void *target) {
 }
 
 void Scheduler::unscheduleAll() {
-    for (auto iter : _hashForTimers) {
-        unscheduleAllForTarget(iter.first);
+    for (auto iter = _hashForTimers.begin(); iter != _hashForTimers.end();) {
+        unscheduleAllForTarget(iter++->first);
     }
 }
 

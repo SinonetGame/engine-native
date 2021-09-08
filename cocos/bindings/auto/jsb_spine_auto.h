@@ -837,6 +837,7 @@ SE_DECLARE_FUNC(js_spine_Skin_getConstraints);
 SE_DECLARE_FUNC(js_spine_Skin_getName);
 SE_DECLARE_FUNC(js_spine_Skin_removeAttachment);
 SE_DECLARE_FUNC(js_spine_Skin_setAttachment);
+SE_DECLARE_FUNC(js_spine_Skin_Skin);
 
 extern se::Object* __jsb_spine_Slot_proto;
 extern se::Class* __jsb_spine_Slot_class;
@@ -1038,6 +1039,7 @@ SE_DECLARE_FUNC(js_spine_SkeletonRenderer_setDebugMeshEnabled);
 SE_DECLARE_FUNC(js_spine_SkeletonRenderer_setDebugSlotsEnabled);
 SE_DECLARE_FUNC(js_spine_SkeletonRenderer_setOpacityModifyRGB);
 SE_DECLARE_FUNC(js_spine_SkeletonRenderer_setSkin);
+SE_DECLARE_FUNC(js_spine_SkeletonRenderer_setSkinObject);
 SE_DECLARE_FUNC(js_spine_SkeletonRenderer_setSlotsRange);
 SE_DECLARE_FUNC(js_spine_SkeletonRenderer_setSlotsToSetupPose);
 SE_DECLARE_FUNC(js_spine_SkeletonRenderer_setTimeScale);

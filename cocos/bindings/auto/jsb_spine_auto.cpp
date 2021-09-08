@@ -11129,11 +11129,35 @@ static bool js_spine_Skin_setAttachment(se::State& s) // NOLINT(readability-iden
 }
 SE_BIND_FUNC(js_spine_Skin_setAttachment)
 
+SE_DECLARE_FINALIZE_FUNC(js_spine_Skin_finalize)
 
+static bool js_spine_Skin_constructor(se::State& s) // NOLINT(readability-identifier-naming) constructor.c
+{
+    CC_UNUSED bool ok = true;
+    const auto& args = s.args();
+    HolderType<std::string, true> arg0 = {};
+    ok &= sevalue_to_native(args[0], &arg0, s.thisObject());
+    SE_PRECONDITION2(ok, false, "js_spine_Skin_constructor : Error processing arguments");
+    const char *myStr = arg0.value().c_str();
+    const spine::String *cvt = new spine::String(myStr);
+    spine::Skin* cobj = JSB_ALLOC(spine::Skin, *cvt);
+    s.thisObject()->setPrivateData(cobj);
+    se::NonRefNativePtrCreatedByCtorMap::emplace(cobj);
+    return true;
+}
+SE_BIND_CTOR(js_spine_Skin_constructor, __jsb_spine_Skin_class, js_spine_Skin_finalize)
+
+
+
+static bool js_spine_Skin_finalize(se::State& s) // NOLINT(readability-identifier-naming)
+{
+    return true;
+}
+SE_BIND_FINALIZE_FUNC(js_spine_Skin_finalize)
 
 bool js_register_spine_Skin(se::Object* obj) // NOLINT(readability-identifier-naming)
 {
-    auto* cls = se::Class::create("Skin", obj, nullptr, nullptr);
+    auto* cls = se::Class::create("Skin", obj, nullptr, _SE(js_spine_Skin_constructor));
 
     cls->defineFunction("addSkin", _SE(js_spine_Skin_addSkin));
     cls->defineFunction("copySkin", _SE(js_spine_Skin_copySkin));
@@ -11143,6 +11167,7 @@ bool js_register_spine_Skin(se::Object* obj) // NOLINT(readability-identifier-na
     cls->defineFunction("getName", _SE(js_spine_Skin_getName));
     cls->defineFunction("removeAttachment", _SE(js_spine_Skin_removeAttachment));
     cls->defineFunction("setAttachment", _SE(js_spine_Skin_setAttachment));
+    cls->defineFinalizeFunction(_SE(js_spine_Skin_finalize));
     cls->install();
     JSBClassType::registerClass<spine::Skin>(cls);
 
@@ -13663,6 +13688,25 @@ static bool js_spine_SkeletonRenderer_setSkin(se::State& s) // NOLINT(readabilit
 }
 SE_BIND_FUNC(js_spine_SkeletonRenderer_setSkin)
 
+static bool js_spine_SkeletonRenderer_setSkinObject(se::State& s) // NOLINT(readability-identifier-naming)
+{
+    auto* cobj = SE_THIS_OBJECT<spine::SkeletonRenderer>(s);
+    SE_PRECONDITION2(cobj, false, "js_spine_SkeletonRenderer_setSkinObject : Invalid Native Object");
+    const auto& args = s.args();
+    size_t argc = args.size();
+    CC_UNUSED bool ok = true;
+    if (argc == 1) {
+        HolderType<spine::Skin*, false> arg0 = {};
+        ok &= sevalue_to_native(args[0], &arg0, s.thisObject());
+        SE_PRECONDITION2(ok, false, "js_spine_SkeletonRenderer_setSkinObject : Error processing arguments");
+        cobj->setSkinObject(arg0.value());
+        return true;
+    }
+    SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);
+    return false;
+}
+SE_BIND_FUNC(js_spine_SkeletonRenderer_setSkinObject)
+
 static bool js_spine_SkeletonRenderer_setSlotsRange(se::State& s) // NOLINT(readability-identifier-naming)
 {
     auto* cobj = SE_THIS_OBJECT<spine::SkeletonRenderer>(s);
@@ -13991,6 +14035,7 @@ bool js_register_spine_SkeletonRenderer(se::Object* obj) // NOLINT(readability-i
     cls->defineFunction("setDebugSlotsEnabled", _SE(js_spine_SkeletonRenderer_setDebugSlotsEnabled));
     cls->defineFunction("setOpacityModifyRGB", _SE(js_spine_SkeletonRenderer_setOpacityModifyRGB));
     cls->defineFunction("setSkin", _SE(js_spine_SkeletonRenderer_setSkin));
+    cls->defineFunction("setSkinObject", _SE(js_spine_SkeletonRenderer_setSkinObject));
     cls->defineFunction("setSlotsRange", _SE(js_spine_SkeletonRenderer_setSlotsRange));
     cls->defineFunction("setSlotsToSetupPose", _SE(js_spine_SkeletonRenderer_setSlotsToSetupPose));
     cls->defineFunction("setTimeScale", _SE(js_spine_SkeletonRenderer_setTimeScale));

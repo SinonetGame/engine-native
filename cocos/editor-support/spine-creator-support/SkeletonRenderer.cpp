@@ -1001,6 +1001,13 @@ void SkeletonRenderer::setSkin(const char *skinName) {
     }
 }
 
+void SkeletonRenderer::setSkinObject(Skin *newSkin) {
+    if (_skeleton) {
+        _skeleton->setSkin(newSkin);
+        _skeleton->setSlotsToSetupPose();
+    }
+}
+
 spine::Attachment *SkeletonRenderer::getAttachment(const std::string &slotName, const std::string &attachmentName) const {
     if (_skeleton) {
         return _skeleton->getAttachment(slotName.c_str(), attachmentName.c_str());

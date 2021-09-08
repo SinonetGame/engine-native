@@ -82,6 +82,8 @@ public:
     /** @param skin May be 0 for no skin.*/
     void setSkin(const char *skinName);
 
+    void setSkinObject(Skin *newSkin);
+
     /* Returns 0 if the slot or attachment was not found. */
     Attachment *getAttachment(const std::string &slotName, const std::string &attachmentName) const;
     /* Returns false if the slot or attachment was not found.

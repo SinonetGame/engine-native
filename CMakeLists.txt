@@ -317,6 +317,12 @@ cocos_source_files(MODULE ccunzip
     cocos/base/ZipUtils.h
 )
 
+##### customJSBridge
+cocos_source_files(
+    cocos/customJSBridge/CustomJSBridge.cpp
+    cocos/customJSBridge/CustomJSBridge.h
+)
+
 ##### memory
 cocos_source_files(
                  cocos/base/memory/AllocatedObj.cpp
@@ -1230,6 +1236,9 @@ cocos_source_files(
                  cocos/bindings/auto/jsb_pipeline_auto.h
     NO_WERROR    cocos/bindings/auto/jsb_scene_auto.cpp
                  cocos/bindings/auto/jsb_scene_auto.h
+
+    NO_WERROR    cocos/bindings/auto/jsb_customJSBridge_auto.cpp
+                 cocos/bindings/auto/jsb_customJSBridge_auto.h
 )
 
 if(USE_AUDIO)

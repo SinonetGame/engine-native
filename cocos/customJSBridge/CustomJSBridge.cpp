@@ -23,7 +23,7 @@ THE SOFTWARE.
 ****************************************************************************/
 #if CC_PLATFORM == CC_PLATFORM_ANDROID
 #include <jni.h>
-#include <cocos/platform/android/jni/JniHelper.h>
+#include "platform/java/jni/JniHelper.h"
 #endif // CC_PLATFORM == CC_PLATFORM_ANDROID
 #include <boost/hana/string.hpp>
 #include "CustomJSBridge.h"

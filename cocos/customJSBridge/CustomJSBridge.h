@@ -39,15 +39,15 @@ public:
     
     using CustomJSBridgeCallback = std::function<void(const std::string&)>; // message
 
-    void setNativeJSBridgeCallback(const CustomJSBridgeCallback &cb);
-    void callNativeJSBridgeCallback(const std::string&);
-    void setSdkJSBridgeCallback(const CustomJSBridgeCallback &cb);
-    void callSdkJSBridgeCallback(const std::string&);
-    void clearCustomJSBridgeCallback();
-    
+    void setXinnuoNativeJSBridgeCallback(const CustomJSBridgeCallback &cb);
+    void callXinnuoNativeJSBridgeCallback(const std::string&);
+    void setXinnuoSdkJSBridgeCallback(const CustomJSBridgeCallback &cb);
+    void callXinnuoSdkJSBridgeCallback(const std::string&);
+    void clearXinnuoCustomJSBridgeCallback();
+
 private:
-    CustomJSBridgeCallback _nativeJSBridgeCallBack = nullptr;
-    CustomJSBridgeCallback _sdkJSBridgeCallBack = nullptr;
+    CustomJSBridgeCallback _xinnuoNativeJSBridgeCallBack = nullptr;
+    CustomJSBridgeCallback _xinnuoSdkJSBridgeCallBack = nullptr;
     
 };
 

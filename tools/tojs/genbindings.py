@@ -27,6 +27,7 @@ defaultSections = [
     'physics',
     'scene',
     'modoJSBridge',
+    'customJSBridge'
 ]
 projectRoot = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 defaultOutputDir = '%s/cocos/bindings/auto' % projectRoot

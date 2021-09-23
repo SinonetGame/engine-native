@@ -13,63 +13,63 @@
 se::Object* __jsb_cc_CustomJSBridge_proto = nullptr;
 se::Class* __jsb_cc_CustomJSBridge_class = nullptr;
 
-static bool js_customJSBridge_CustomJSBridge_callNativeJSBridgeCallback(se::State& s)
+static bool js_customJSBridge_CustomJSBridge_callXinnuoNativeJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::CustomJSBridge* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
-    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_callNativeJSBridgeCallback : Invalid Native Object");
+    auto* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
+    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_callXinnuoNativeJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
     CC_UNUSED bool ok = true;
     if (argc == 1) {
         HolderType<std::string, true> arg0 = {};
         ok &= sevalue_to_native(args[0], &arg0, s.thisObject());
-        SE_PRECONDITION2(ok, false, "js_customJSBridge_CustomJSBridge_callNativeJSBridgeCallback : Error processing arguments");
-        cobj->callNativeJSBridgeCallback(arg0.value());
+        SE_PRECONDITION2(ok, false, "js_customJSBridge_CustomJSBridge_callXinnuoNativeJSBridgeCallback : Error processing arguments");
+        cobj->callXinnuoNativeJSBridgeCallback(arg0.value());
         return true;
     }
     SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);
     return false;
 }
-SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_callNativeJSBridgeCallback)
+SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_callXinnuoNativeJSBridgeCallback)
 
-static bool js_customJSBridge_CustomJSBridge_callSdkJSBridgeCallback(se::State& s)
+static bool js_customJSBridge_CustomJSBridge_callXinnuoSdkJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::CustomJSBridge* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
-    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_callSdkJSBridgeCallback : Invalid Native Object");
+    auto* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
+    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_callXinnuoSdkJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
     CC_UNUSED bool ok = true;
     if (argc == 1) {
         HolderType<std::string, true> arg0 = {};
         ok &= sevalue_to_native(args[0], &arg0, s.thisObject());
-        SE_PRECONDITION2(ok, false, "js_customJSBridge_CustomJSBridge_callSdkJSBridgeCallback : Error processing arguments");
-        cobj->callSdkJSBridgeCallback(arg0.value());
+        SE_PRECONDITION2(ok, false, "js_customJSBridge_CustomJSBridge_callXinnuoSdkJSBridgeCallback : Error processing arguments");
+        cobj->callXinnuoSdkJSBridgeCallback(arg0.value());
         return true;
     }
     SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);
     return false;
 }
-SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_callSdkJSBridgeCallback)
+SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_callXinnuoSdkJSBridgeCallback)
 
-static bool js_customJSBridge_CustomJSBridge_clearCustomJSBridgeCallback(se::State& s)
+static bool js_customJSBridge_CustomJSBridge_clearXinnuoCustomJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::CustomJSBridge* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
-    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_clearCustomJSBridgeCallback : Invalid Native Object");
+    auto* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
+    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_clearXinnuoCustomJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
     if (argc == 0) {
-        cobj->clearCustomJSBridgeCallback();
+        cobj->clearXinnuoCustomJSBridgeCallback();
         return true;
     }
     SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 0);
     return false;
 }
-SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_clearCustomJSBridgeCallback)
+SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_clearXinnuoCustomJSBridgeCallback)
 
-static bool js_customJSBridge_CustomJSBridge_setNativeJSBridgeCallback(se::State& s)
+static bool js_customJSBridge_CustomJSBridge_setXinnuoNativeJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::CustomJSBridge* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
-    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_setNativeJSBridgeCallback : Invalid Native Object");
+    auto* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
+    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_setXinnuoNativeJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
     CC_UNUSED bool ok = true;
@@ -105,19 +105,19 @@ static bool js_customJSBridge_CustomJSBridge_setNativeJSBridgeCallback(se::State
             }
         } while(false)
         ;
-        SE_PRECONDITION2(ok, false, "js_customJSBridge_CustomJSBridge_setNativeJSBridgeCallback : Error processing arguments");
-        cobj->setNativeJSBridgeCallback(arg0.value());
+        SE_PRECONDITION2(ok, false, "js_customJSBridge_CustomJSBridge_setXinnuoNativeJSBridgeCallback : Error processing arguments");
+        cobj->setXinnuoNativeJSBridgeCallback(arg0.value());
         return true;
     }
     SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);
     return false;
 }
-SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_setNativeJSBridgeCallback)
+SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_setXinnuoNativeJSBridgeCallback)
 
-static bool js_customJSBridge_CustomJSBridge_setSdkJSBridgeCallback(se::State& s)
+static bool js_customJSBridge_CustomJSBridge_setXinnuoSdkJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::CustomJSBridge* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
-    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_setSdkJSBridgeCallback : Invalid Native Object");
+    auto* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
+    SE_PRECONDITION2(cobj, false, "js_customJSBridge_CustomJSBridge_setXinnuoSdkJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
     CC_UNUSED bool ok = true;
@@ -153,16 +153,16 @@ static bool js_customJSBridge_CustomJSBridge_setSdkJSBridgeCallback(se::State& s
             }
         } while(false)
         ;
-        SE_PRECONDITION2(ok, false, "js_customJSBridge_CustomJSBridge_setSdkJSBridgeCallback : Error processing arguments");
-        cobj->setSdkJSBridgeCallback(arg0.value());
+        SE_PRECONDITION2(ok, false, "js_customJSBridge_CustomJSBridge_setXinnuoSdkJSBridgeCallback : Error processing arguments");
+        cobj->setXinnuoSdkJSBridgeCallback(arg0.value());
         return true;
     }
     SE_REPORT_ERROR("wrong number of arguments: %d, was expecting %d", (int)argc, 1);
     return false;
 }
-SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_setSdkJSBridgeCallback)
+SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_setXinnuoSdkJSBridgeCallback)
 
-static bool js_customJSBridge_CustomJSBridge_getInstance(se::State& s)
+static bool js_customJSBridge_CustomJSBridge_getInstance(se::State& s) // NOLINT(readability-identifier-naming)
 {
     const auto& args = s.args();
     size_t argc = args.size();
@@ -180,29 +180,28 @@ static bool js_customJSBridge_CustomJSBridge_getInstance(se::State& s)
 SE_BIND_FUNC(js_customJSBridge_CustomJSBridge_getInstance)
 
 
-
-static bool js_cc_CustomJSBridge_finalize(se::State& s)
+static bool js_cc_CustomJSBridge_finalize(se::State& s) // NOLINT(readability-identifier-naming)
 {
     auto iter = se::NonRefNativePtrCreatedByCtorMap::find(SE_THIS_OBJECT<cc::CustomJSBridge>(s));
     if (iter != se::NonRefNativePtrCreatedByCtorMap::end())
     {
         se::NonRefNativePtrCreatedByCtorMap::erase(iter);
-        cc::CustomJSBridge* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
+        auto* cobj = SE_THIS_OBJECT<cc::CustomJSBridge>(s);
         JSB_FREE(cobj);
     }
     return true;
 }
 SE_BIND_FINALIZE_FUNC(js_cc_CustomJSBridge_finalize)
 
-bool js_register_customJSBridge_CustomJSBridge(se::Object* obj)
+bool js_register_customJSBridge_CustomJSBridge(se::Object* obj) // NOLINT(readability-identifier-naming)
 {
-    auto cls = se::Class::create("CustomJSBridge", obj, nullptr, nullptr);
+    auto* cls = se::Class::create("CustomJSBridge", obj, nullptr, nullptr);
 
-    cls->defineFunction("callNativeJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_callNativeJSBridgeCallback));
-    cls->defineFunction("callSdkJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_callSdkJSBridgeCallback));
-    cls->defineFunction("clearCustomJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_clearCustomJSBridgeCallback));
-    cls->defineFunction("setNativeJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_setNativeJSBridgeCallback));
-    cls->defineFunction("setSdkJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_setSdkJSBridgeCallback));
+    cls->defineFunction("callXinnuoNativeJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_callXinnuoNativeJSBridgeCallback));
+    cls->defineFunction("callXinnuoSdkJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_callXinnuoSdkJSBridgeCallback));
+    cls->defineFunction("clearXinnuoCustomJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_clearXinnuoCustomJSBridgeCallback));
+    cls->defineFunction("setXinnuoNativeJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_setXinnuoNativeJSBridgeCallback));
+    cls->defineFunction("setXinnuoSdkJSBridgeCallback", _SE(js_customJSBridge_CustomJSBridge_setXinnuoSdkJSBridgeCallback));
     cls->defineStaticFunction("getInstance", _SE(js_customJSBridge_CustomJSBridge_getInstance));
     cls->defineFinalizeFunction(_SE(js_cc_CustomJSBridge_finalize));
     cls->install();

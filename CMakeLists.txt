@@ -317,11 +317,17 @@ cocos_source_files(MODULE ccunzip
     cocos/base/ZipUtils.h
 )
 
+##### modoJSBridge
+cocos_source_files(
+    cocos/modoJSBridge/ModoJSBridge.cpp
+    cocos/modoJSBridge/ModoJSBridge.h
+    )
+
 ##### customJSBridge
 cocos_source_files(
     cocos/customJSBridge/CustomJSBridge.cpp
     cocos/customJSBridge/CustomJSBridge.h
-)
+    )
 
 ##### memory
 cocos_source_files(
@@ -386,7 +392,7 @@ elseif(USE_JOB_SYSTEM_TBB)
         cocos/base/job-system/job-system-tbb/TBBJobSystem.h
         cocos/base/job-system/job-system-tbb/TBBJobSystem.cpp
     )
-else() 
+else()
     cocos_source_files(
         cocos/base/job-system/job-system-dummy/DummyJobGraph.h
         cocos/base/job-system/job-system-dummy/DummyJobGraph.cpp
@@ -578,7 +584,7 @@ elseif(ANDROID)
         ${CWD}/cocos/platform/java/jni/JniImp.cpp
         ${CWD}/cocos/platform/java/jni/JniImp.h
     )
-    
+
     cocos_source_files(MODULE ccfilesystem
         cocos/platform/android/FileUtils-android.cpp
         cocos/platform/android/FileUtils-android.h
@@ -618,7 +624,7 @@ elseif(APPLE)
                      cocos/platform/ios/Reachability.h
                      cocos/platform/ios/Reachability.cpp
     )
-    
+
     cocos_source_files(MODULE ccfilesystem
         cocos/platform/apple/FileUtils-apple.h
         cocos/platform/apple/FileUtils-apple.mm
@@ -1236,7 +1242,8 @@ cocos_source_files(
                  cocos/bindings/auto/jsb_pipeline_auto.h
     NO_WERROR    cocos/bindings/auto/jsb_scene_auto.cpp
                  cocos/bindings/auto/jsb_scene_auto.h
-
+    NO_WERROR    cocos/bindings/auto/jsb_modoJSBridge_auto.cpp
+                 cocos/bindings/auto/jsb_modoJSBridge_auto.h
     NO_WERROR    cocos/bindings/auto/jsb_customJSBridge_auto.cpp
                  cocos/bindings/auto/jsb_customJSBridge_auto.h
 )

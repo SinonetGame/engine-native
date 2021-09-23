@@ -39,29 +39,29 @@ namespace cc {
         return __instance;
     }
 
-    void CustomJSBridge::setNativeJSBridgeCallback(const CustomJSBridgeCallback &cb) {
-        _nativeJSBridgeCallBack = cb;
+    void CustomJSBridge::setXinnuoNativeJSBridgeCallback(const CustomJSBridgeCallback &cb) {
+        _xinnuoNativeJSBridgeCallBack = cb;
     }
 
-    void CustomJSBridge::callNativeJSBridgeCallback(const std::string &message) {
-        if (_nativeJSBridgeCallBack) {
-            _nativeJSBridgeCallBack(message);
+    void CustomJSBridge::callXinnuoNativeJSBridgeCallback(const std::string &message) {
+        if (_xinnuoNativeJSBridgeCallBack) {
+            _xinnuoNativeJSBridgeCallBack(message);
         }
     }
 
-    void CustomJSBridge::setSdkJSBridgeCallback(const CustomJSBridgeCallback &cb) {
-        _sdkJSBridgeCallBack = cb;
+    void CustomJSBridge::setXinnuoSdkJSBridgeCallback(const CustomJSBridgeCallback &cb) {
+        _xinnuoSdkJSBridgeCallBack = cb;
     }
 
-    void CustomJSBridge::callSdkJSBridgeCallback(const std::string &message) {
-        if (_sdkJSBridgeCallBack) {
-            _sdkJSBridgeCallBack(message);
+    void CustomJSBridge::callXinnuoSdkJSBridgeCallback(const std::string &message) {
+        if (_xinnuoSdkJSBridgeCallBack) {
+            _xinnuoSdkJSBridgeCallBack(message);
         }
     }
 
-    void CustomJSBridge::clearCustomJSBridgeCallback() {
-        _nativeJSBridgeCallBack = nullptr;
-        _sdkJSBridgeCallBack = nullptr;
+    void CustomJSBridge::clearXinnuoCustomJSBridgeCallback() {
+        _xinnuoNativeJSBridgeCallBack = nullptr;
+        _xinnuoSdkJSBridgeCallBack = nullptr;
     }
 } // namespace cc
 
@@ -81,29 +81,29 @@ Java_com_cocos_game_AppActivity_setNativeJSBridgeCallback(JNIEnv *env, jobject t
     auto func = [=](const std::string str) -> void {
         cc::JniHelper::callStaticVoidMethod("com/cocos/game/AppActivity", "nativeCallBack", str);
     };
-    cc::CustomJSBridge::getInstance()->setNativeJSBridgeCallback(func);
+    cc::CustomJSBridge::getInstance()->setXinnuoNativeJSBridgeCallback(func);
 }
 JNIEXPORT void JNICALL
 Java_com_cocos_game_AppActivity_callNativeJSBridgeCallback(JNIEnv *env, jobject thiz,
                                                            jstring prompt) {
     auto textStr = cc::JniHelper::jstring2string(prompt);
-    cc::CustomJSBridge::getInstance()->callNativeJSBridgeCallback(textStr);
+    cc::CustomJSBridge::getInstance()->callXinnuoNativeJSBridgeCallback(textStr);
 }
 JNIEXPORT void JNICALL
 Java_com_cocos_game_AppActivity_setSdkJSBridgeCallback(JNIEnv *env, jobject thiz) {
     auto func = [=](const std::string str) -> void {
         cc::JniHelper::callStaticVoidMethod("com/cocos/game/AppActivity", "sdkCallBack", str);
     };
-    cc::CustomJSBridge::getInstance()->setSdkJSBridgeCallback(func);
+    cc::CustomJSBridge::getInstance()->setXinnuoSdkJSBridgeCallback(func);
 }
 JNIEXPORT void JNICALL
 Java_com_cocos_game_AppActivity_callSdkJSBridgeCallback(JNIEnv *env, jobject thiz, jstring std) {
     auto textStr = cc::JniHelper::jstring2string(std);
-    cc::CustomJSBridge::getInstance()->callSdkJSBridgeCallback(textStr);
+    cc::CustomJSBridge::getInstance()->callXinnuoSdkJSBridgeCallback(textStr);
 }
 JNIEXPORT void JNICALL
 Java_com_cocos_game_AppActivity_clearCustomJSBridgeCallback(JNIEnv *env, jobject thiz) {
-    cc::CustomJSBridge::getInstance()->clearCustomJSBridgeCallback();
+    cc::CustomJSBridge::getInstance()->clearXinnuoCustomJSBridgeCallback();
 }
 }
 #endif // CC_PLATFORM == CC_PLATFORM_ANDROID

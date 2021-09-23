@@ -30,13 +30,13 @@ THE SOFTWARE.
 
 namespace cc {
 
-    CustomJSBridge *__instance = nullptr;
+    CustomJSBridge *__xinnuoInstance = nullptr;
 
     CustomJSBridge *CustomJSBridge::getInstance() {
-        if (__instance == nullptr) {
-            __instance = new CustomJSBridge();
+        if (__xinnuoInstance == nullptr) {
+            __xinnuoInstance = new CustomJSBridge();
         }
-        return __instance;
+        return __xinnuoInstance;
     }
 
     void CustomJSBridge::setXinnuoNativeJSBridgeCallback(const CustomJSBridgeCallback &cb) {

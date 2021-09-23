@@ -26,13 +26,13 @@ THE SOFTWARE.
 
 namespace cc {
 
-ModoJSBridge *__instance = nullptr;
+ModoJSBridge *__modoInstance = nullptr;
 
 ModoJSBridge *ModoJSBridge::getInstance() {
-    if (__instance == nullptr) {
-        __instance = new ModoJSBridge();
+    if (__modoInstance == nullptr) {
+        __modoInstance = new ModoJSBridge();
     }
-    return __instance;
+    return __modoInstance;
 }
 
 void ModoJSBridge::setNativeJSBridgeCallback(const ModoJSBridgeCallback &cb) {

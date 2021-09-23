@@ -44,7 +44,7 @@ public:
     void setXinnuoSdkJSBridgeCallback(const CustomJSBridgeCallback &cb);
     void callXinnuoSdkJSBridgeCallback(const std::string&);
     void clearXinnuoCustomJSBridgeCallback();
-
+    
 private:
     CustomJSBridgeCallback _xinnuoNativeJSBridgeCallBack = nullptr;
     CustomJSBridgeCallback _xinnuoSdkJSBridgeCallBack = nullptr;

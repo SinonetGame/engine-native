@@ -13,9 +13,9 @@
 se::Object* __jsb_cc_ModoJSBridge_proto = nullptr;
 se::Class* __jsb_cc_ModoJSBridge_class = nullptr;
 
-static bool js_modoJSBridge_ModoJSBridge_callNativeJSBridgeCallback(se::State& s)
+static bool js_modoJSBridge_ModoJSBridge_callNativeJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::ModoJSBridge* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
+    auto* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
     SE_PRECONDITION2(cobj, false, "js_modoJSBridge_ModoJSBridge_callNativeJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
@@ -32,9 +32,9 @@ static bool js_modoJSBridge_ModoJSBridge_callNativeJSBridgeCallback(se::State& s
 }
 SE_BIND_FUNC(js_modoJSBridge_ModoJSBridge_callNativeJSBridgeCallback)
 
-static bool js_modoJSBridge_ModoJSBridge_callSdkJSBridgeCallback(se::State& s)
+static bool js_modoJSBridge_ModoJSBridge_callSdkJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::ModoJSBridge* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
+    auto* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
     SE_PRECONDITION2(cobj, false, "js_modoJSBridge_ModoJSBridge_callSdkJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
@@ -51,9 +51,9 @@ static bool js_modoJSBridge_ModoJSBridge_callSdkJSBridgeCallback(se::State& s)
 }
 SE_BIND_FUNC(js_modoJSBridge_ModoJSBridge_callSdkJSBridgeCallback)
 
-static bool js_modoJSBridge_ModoJSBridge_clearCustomJSBridgeCallback(se::State& s)
+static bool js_modoJSBridge_ModoJSBridge_clearCustomJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::ModoJSBridge* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
+    auto* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
     SE_PRECONDITION2(cobj, false, "js_modoJSBridge_ModoJSBridge_clearCustomJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
@@ -66,9 +66,9 @@ static bool js_modoJSBridge_ModoJSBridge_clearCustomJSBridgeCallback(se::State& 
 }
 SE_BIND_FUNC(js_modoJSBridge_ModoJSBridge_clearCustomJSBridgeCallback)
 
-static bool js_modoJSBridge_ModoJSBridge_setNativeJSBridgeCallback(se::State& s)
+static bool js_modoJSBridge_ModoJSBridge_setNativeJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::ModoJSBridge* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
+    auto* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
     SE_PRECONDITION2(cobj, false, "js_modoJSBridge_ModoJSBridge_setNativeJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
@@ -84,7 +84,7 @@ static bool js_modoJSBridge_ModoJSBridge_setNativeJSBridgeCallback(se::State& s)
                 auto lambda = [=](const std::string larg0) -> void {
                     se::ScriptEngine::getInstance()->clearException();
                     se::AutoHandleScope hs;
-
+        
                     CC_UNUSED bool ok = true;
                     se::ValueArray args;
                     args.resize(1);
@@ -114,9 +114,9 @@ static bool js_modoJSBridge_ModoJSBridge_setNativeJSBridgeCallback(se::State& s)
 }
 SE_BIND_FUNC(js_modoJSBridge_ModoJSBridge_setNativeJSBridgeCallback)
 
-static bool js_modoJSBridge_ModoJSBridge_setSdkJSBridgeCallback(se::State& s)
+static bool js_modoJSBridge_ModoJSBridge_setSdkJSBridgeCallback(se::State& s) // NOLINT(readability-identifier-naming)
 {
-    cc::ModoJSBridge* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
+    auto* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
     SE_PRECONDITION2(cobj, false, "js_modoJSBridge_ModoJSBridge_setSdkJSBridgeCallback : Invalid Native Object");
     const auto& args = s.args();
     size_t argc = args.size();
@@ -132,7 +132,7 @@ static bool js_modoJSBridge_ModoJSBridge_setSdkJSBridgeCallback(se::State& s)
                 auto lambda = [=](const std::string larg0) -> void {
                     se::ScriptEngine::getInstance()->clearException();
                     se::AutoHandleScope hs;
-
+        
                     CC_UNUSED bool ok = true;
                     se::ValueArray args;
                     args.resize(1);
@@ -162,7 +162,7 @@ static bool js_modoJSBridge_ModoJSBridge_setSdkJSBridgeCallback(se::State& s)
 }
 SE_BIND_FUNC(js_modoJSBridge_ModoJSBridge_setSdkJSBridgeCallback)
 
-static bool js_modoJSBridge_ModoJSBridge_getInstance(se::State& s)
+static bool js_modoJSBridge_ModoJSBridge_getInstance(se::State& s) // NOLINT(readability-identifier-naming)
 {
     const auto& args = s.args();
     size_t argc = args.size();
@@ -180,23 +180,22 @@ static bool js_modoJSBridge_ModoJSBridge_getInstance(se::State& s)
 SE_BIND_FUNC(js_modoJSBridge_ModoJSBridge_getInstance)
 
 
-
-static bool js_cc_ModoJSBridge_finalize(se::State& s)
+static bool js_cc_ModoJSBridge_finalize(se::State& s) // NOLINT(readability-identifier-naming)
 {
     auto iter = se::NonRefNativePtrCreatedByCtorMap::find(SE_THIS_OBJECT<cc::ModoJSBridge>(s));
     if (iter != se::NonRefNativePtrCreatedByCtorMap::end())
     {
         se::NonRefNativePtrCreatedByCtorMap::erase(iter);
-        cc::ModoJSBridge* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
+        auto* cobj = SE_THIS_OBJECT<cc::ModoJSBridge>(s);
         JSB_FREE(cobj);
     }
     return true;
 }
 SE_BIND_FINALIZE_FUNC(js_cc_ModoJSBridge_finalize)
 
-bool js_register_modoJSBridge_ModoJSBridge(se::Object* obj)
+bool js_register_modoJSBridge_ModoJSBridge(se::Object* obj) // NOLINT(readability-identifier-naming)
 {
-    auto cls = se::Class::create("ModoJSBridge", obj, nullptr, nullptr);
+    auto* cls = se::Class::create("ModoJSBridge", obj, nullptr, nullptr);
 
     cls->defineFunction("callNativeJSBridgeCallback", _SE(js_modoJSBridge_ModoJSBridge_callNativeJSBridgeCallback));
     cls->defineFunction("callSdkJSBridgeCallback", _SE(js_modoJSBridge_ModoJSBridge_callSdkJSBridgeCallback));
@@ -229,3 +228,4 @@ bool register_all_modoJSBridge(se::Object* obj)
     js_register_modoJSBridge_ModoJSBridge(ns);
     return true;
 }
+

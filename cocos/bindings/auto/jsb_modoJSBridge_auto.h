@@ -18,3 +18,4 @@ SE_DECLARE_FUNC(js_modoJSBridge_ModoJSBridge_clearCustomJSBridgeCallback);
 SE_DECLARE_FUNC(js_modoJSBridge_ModoJSBridge_setNativeJSBridgeCallback);
 SE_DECLARE_FUNC(js_modoJSBridge_ModoJSBridge_setSdkJSBridgeCallback);
 SE_DECLARE_FUNC(js_modoJSBridge_ModoJSBridge_getInstance);
+

@@ -34,9 +34,9 @@ namespace cc {
 
 class CC_DLL ModoJSBridge final {
 public:
-
+    
     static ModoJSBridge *getInstance();
-
+    
     using ModoJSBridgeCallback = std::function<void(const std::string&)>; // message
 
     void setNativeJSBridgeCallback(const ModoJSBridgeCallback &cb);
@@ -44,11 +44,11 @@ public:
     void setSdkJSBridgeCallback(const ModoJSBridgeCallback &cb);
     void callSdkJSBridgeCallback(const std::string&);
     void clearCustomJSBridgeCallback();
-
+    
 private:
     ModoJSBridgeCallback _nativeJSBridgeCallBack = nullptr;
     ModoJSBridgeCallback _sdkJSBridgeCallBack = nullptr;
-
+    
 };
 
 } // namespace cc

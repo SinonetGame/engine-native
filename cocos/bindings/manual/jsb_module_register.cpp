@@ -42,6 +42,7 @@
 #include "cocos/bindings/manual/jsb_platform.h"
 #include "cocos/bindings/manual/jsb_scene_manual.h"
 #include "cocos/bindings/manual/jsb_xmlhttprequest.h"
+#include "cocos/bindings/auto/jsb_modoJSBridge_auto.h"
 #include "cocos/bindings/auto/jsb_customJSBridge_auto.h"
 
 #if USE_GFX_RENDERER
@@ -126,6 +127,7 @@ bool jsb_register_all_modules() {
     se->addRegisterCallback(register_all_pipeline_manual);
     se->addRegisterCallback(register_all_scene);
     se->addRegisterCallback(register_all_scene_manual);
+    se->addRegisterCallback(register_all_modoJSBridge);
     se->addRegisterCallback(register_all_customJSBridge);
 
 #if (CC_PLATFORM == CC_PLATFORM_MAC_IOS || CC_PLATFORM == CC_PLATFORM_MAC_OSX)

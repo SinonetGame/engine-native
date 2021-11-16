@@ -549,7 +549,11 @@ private:
             return nullptr;
         }
         std::string strValue = cc::StringUtils::getStringUTFCharsJNI(env, jstr);
-        return strdup(strValue.c_str());
+        // return strdup(strValue.c_str());
+        auto size = strlen(strValue.c_str());
+        char *c = (char*)malloc(size + 1);
+        strcpy(c, strValue.c_str());
+        return c;
     }
 
     int getCStrFromJByteArray(jbyteArray jba, JNIEnv *env, char **ppData) { //NOLINT(readability-convert-member-functions-to-static)

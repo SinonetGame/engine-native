@@ -179,6 +179,7 @@ bool jsbConsoleWarn(State &s) {
 SE_BIND_FUNC(jsbConsoleWarn)
 
 bool jsbConsoleError(State &s) {
+    // CC_LOG_ERROR(".jsb_call ---- \n%s\n", se::ScriptEngine::getInstance()->getCurrentStackTrace().c_str());  // 用于跟踪错误堆栈
     jsbConsoleFormatLog(s, "[ERROR]: ");
     oldConsoleError.toObject()->call(s.args(), s.thisObject());
     return true;

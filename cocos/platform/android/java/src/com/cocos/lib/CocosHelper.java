@@ -266,7 +266,7 @@ public class CocosHelper {
         try {
             Display display = ((WindowManager) sActivity.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
             return display.getRotation();
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return Surface.ROTATION_0;

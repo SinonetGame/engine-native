@@ -473,7 +473,10 @@ bool ScriptEngine::init() {
     _isolate->SetFatalErrorHandler(onFatalErrorCallback);
     _isolate->SetOOMErrorHandler(onOOMErrorCallback);
     _isolate->AddMessageListener(onMessageCallback);
+
+#if defined(CC_DEBUG) && (CC_DEBUG > 0)
     _isolate->SetPromiseRejectCallback(onPromiseRejectCallback);
+#endif
 
     _context.Reset(_isolate, v8::Context::New(_isolate));
     _context.Get(_isolate)->Enter();
